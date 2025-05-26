@@ -6,32 +6,44 @@
   <title>PizzaHad</title>
   <style>
     body {
-      background-color: rgb(255, 255, 255);
+      background-color: rgb(255, 255, 255); /* Белый фон */
     }
 
     #main {
       text-align: center;
       margin: 20px;
     }
+
     .card {
       display: inline-block;
-      color: #ffd54a;
       border-radius: 5px;
       padding: 10px;
       margin: 10px;
       width: 150px;
-      box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.1);
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+      background-color: rgb(255, 255, 102); /* Желтый фон карточек */
     }
+
     .card img {
       width: 100%;
       height: auto;
       border-radius: 5px;
     }
-    #join {
-      margin-top: 20px;
+
+    .join {
+      margin-top: 10px;
       padding: 10px 20px;
       font-size: 16px;
-      color: rgb(255, 255, 255);
+      color: black; /* Черный текст на кнопках */
+      background-color: white; /* Белый фон кнопок */
+      border: 1px solid #ccc; /* Серый бордер */
+      border-radius: 4px; /* Скругленные углы */
+      cursor: pointer; /* Курсор при наведении */
+      transition: background-color 0.3s ease; /* Плавный переход цвета */
+    }
+
+    .join:hover {
+      background-color: #f0f0f0; /* Светло-серый фон при наведении */
     }
   </style>
 </head>
@@ -43,44 +55,45 @@
       <h2>Сыр</h2>
       <img src="path/to/cheese.jpg" alt="Сыр">
       <p>Топленый сыр для вашей пиццы.</p>
-      <button id="join">Добавить</button>
+      <button class="join">Добавить</button>
     </div>
 
     <div class="card">
       <h2>Колбаса</h2>
       <img src="path/to/sausage.jpg" alt="Колбаса">
       <p>Вкусная колбаса для пиццы.</p>
-      <button id="join">Добавить</button>
+      <button class="join">Добавить</button>
     </div>
 
     <div class="card">
       <h2>Грибы</h2>
       <img src="path/to/mushrooms.jpg" alt="Грибы">
       <p>Свежие грибы для пиццы.</p>
-      <button id="join">Добавить</button>
+      <button class="join">Добавить</button>
     </div>
 
     <div class="card">
       <h2>Ананасы</h2>
       <img src="path/to/pineapple.jpg" alt="Ананасы">
       <p>Сладкие ананасы для пиццы.</p>
-      <button id="join">Добавить</button>
+      <button class="join">Добавить</button>
     </div>
 
     <div class="card">
       <h2>Салат</h2>
       <img src="path/to/salad.jpg" alt="Салат">
       <p>Свежий салат для пиццы.</p>
-      <button id="join">Добавить</button>
+      <button class="join">Добавить</button>
     </div>
 
     <div class="card">
       <h2>Лук</h2>
       <img src="path/to/onion.jpg" alt="Лук">
       <p>Ароматный лук для пиццы.</p>
-      <button id="join">Добавить</button>
+      <button class="join">Добавить</button>
     </div>
   </div>
 </body>
 </html>
+
 
