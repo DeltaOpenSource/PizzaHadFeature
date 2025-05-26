@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PizzaHad</title>
   <style>
     body {
-      background-color: rgb(255, 255, 255); /* Белый фон */
+      background-color: rgb(255, 255, 255);
+      font-family: Arial, sans-serif;
     }
 
     #main {
       text-align: center;
       margin: 20px;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
     }
 
     .card {
@@ -21,7 +27,12 @@
       margin: 10px;
       width: 150px;
       box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-      background-color: rgb(255, 255, 102); /* Желтый фон карточек */
+      background-color: #FFEB99; /* Более приятный пастельный желтый */
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
     }
 
     .card img {
@@ -34,16 +45,22 @@
       margin-top: 10px;
       padding: 10px 20px;
       font-size: 16px;
-      color: black; /* Черный текст на кнопках */
-      background-color: white; /* Белый фон кнопок */
-      border: 1px solid #ccc; /* Серый бордер */
-      border-radius: 4px; /* Скругленные углы */
-      cursor: pointer; /* Курсор при наведении */
-      transition: background-color 0.3s ease; /* Плавный переход цвета */
+      color: #fff;
+      background-color: #28a745;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s;
     }
 
     .join:hover {
-      background-color: #f0f0f0; /* Светло-серый фон при наведении */
+      background-color: #218838;
+      transform: translateY(-2px);
+    }
+
+    p {
+      color: #555;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -53,47 +70,48 @@
 
     <div class="card">
       <h2>Сыр</h2>
-      <img src="path/to/cheese.jpg" alt="Сыр">
+      <img src="path/to/cheese.jpg" alt="Сыр" />
       <p>Топленый сыр для вашей пиццы.</p>
       <button class="join">Добавить</button>
     </div>
 
     <div class="card">
       <h2>Колбаса</h2>
-      <img src="path/to/sausage.jpg" alt="Колбаса">
+      <img src="path/to/sausage.jpg" alt="Колбаса" />
       <p>Вкусная колбаса для пиццы.</p>
       <button class="join">Добавить</button>
     </div>
 
     <div class="card">
       <h2>Грибы</h2>
-      <img src="path/to/mushrooms.jpg" alt="Грибы">
+      <img src="path/to/mushrooms.jpg" alt="Грибы" />
       <p>Свежие грибы для пиццы.</p>
       <button class="join">Добавить</button>
     </div>
 
     <div class="card">
       <h2>Ананасы</h2>
-      <img src="path/to/pineapple.jpg" alt="Ананасы">
+      <img src="path/to/pineapple.jpg" alt="Ананасы" />
       <p>Сладкие ананасы для пиццы.</p>
       <button class="join">Добавить</button>
     </div>
 
     <div class="card">
       <h2>Салат</h2>
-      <img src="path/to/salad.jpg" alt="Салат">
+      <img src="path/to/salad.jpg" alt="Салат" />
       <p>Свежий салат для пиццы.</p>
       <button class="join">Добавить</button>
     </div>
 
     <div class="card">
       <h2>Лук</h2>
-      <img src="path/to/onion.jpg" alt="Лук">
+      <img src="path/to/onion.jpg" alt="Лук" />
       <p>Ароматный лук для пиццы.</p>
       <button class="join">Добавить</button>
     </div>
   </div>
 </body>
 </html>
+
 
 
