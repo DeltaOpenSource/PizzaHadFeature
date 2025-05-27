@@ -27,7 +27,7 @@
       margin: 10px;
       width: 150px;
       box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-      background-color: #FFEB99; /* Более приятный пастельный желтый */
+      background-color: #FFEB99; 
       transition: transform 0.2s;
     }
 
@@ -45,7 +45,7 @@
       margin-top: 10px;
       padding: 10px 20px;
       font-size: 16px;
-      color: #fff;
+      color: #000000;
       background-color: #ffffff;
       border: none;
       border-radius: 4px;
@@ -65,6 +65,14 @@
 
     #selected-ingredients {
       margin-top: 20px;
+    }
+
+    #ingredient-list li {
+      border: 1px solid #000000;
+      border-radius: 4px;
+      padding: 10px;
+      margin: 5px 0;
+      background-color: #FFEB99;
     }
   </style>
 </head>
@@ -127,7 +135,6 @@
     let tg = window.Telegram.WebApp;
     let selectedIngredients = []; 
 
-   
     let sur = document.getElementById("join_sur");
     let sal = document.getElementById("join_sal");
     let ana = document.getElementById("join_ana");
@@ -153,7 +160,6 @@
       'Лук': 43
     };
 
- 
     function addIngredient(ingredient) {
       if (!selectedIngredients.includes(ingredient)) {
         selectedIngredients.push(ingredient);
@@ -186,7 +192,6 @@
       totalBuyLi.textContent = `Общее количество рублей: ${totalBuy}`;
       ingredientList.appendChild(totalBuyLi);
     }
-
 
     sur.onclick = () => addIngredient('Сыр');
     sal.onclick = () => addIngredient('Салат');
