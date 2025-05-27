@@ -158,6 +158,7 @@
     function updateIngredientList() {
       const ingredientList = document.getElementById('ingredient-list');
       ingredientList.innerHTML = ''; // Очищаем текущий список
+      let totalCalories = 0; // Переменная для подсчета калорий
       selectedIngredients.forEach(ingredient => {
         const li = document.createElement('li');
         const calories = ingredientCalories[ingredient];
@@ -166,38 +167,35 @@
         ingredientList.appendChild(li);
       });
 
-
       const totalCaloriesLi = document.createElement('li');
       totalCaloriesLi.textContent = `Общее количество калорий: ${totalCalories}`;
       ingredientList.appendChild(totalCaloriesLi); // Добавляем в список
     }
 
-    
-
+    // Функция для отображения всех ингредиентов с калориями
     function showCalories() {
-            const calorieList = document.getElementById('calorie-list'); 
-            calorieList.innerHTML = ''; 
-            for (const ingredient in ingredientCalories) {
-                const li = document.createElement('li');
-                li.textContent = `${ingredient} - ${ingredientCalories[ingredient]} калорий`;
-                calorieList.appendChild(li);
-            }
+      const calorieList = document.getElementById('calorie-list'); 
+      calorieList.innerHTML = ''; 
+      for (const ingredient in ingredientCalories) {
+        const li = document.createElement('li');
+        li.textContent = `${ingredient} - ${ingredientCalories[ingredient]} калорий`;
+        calorieList.appendChild(li);
+      }
     }
 
     document.getElementById('show-calories').onclick = showCalories;
 
-
+    // Назначаем обработчики событий для кнопок добавления ингредиентов
     sur.onclick = () => addIngredient('Сыр');
     sal.onclick = () => addIngredient('Салат');
     ana.onclick = () => addIngredient('Ананасы');
     col.onclick = () => addIngredient('Колбаса');
     gri.onclick = () => addIngredient('Грибы');
     luk.onclick = () => addIngredient('Лук');
-
-
   </script>
 </body>
 </html>
+
 
 
 
