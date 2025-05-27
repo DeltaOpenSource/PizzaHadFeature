@@ -125,9 +125,9 @@
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <script>
     let tg = window.Telegram.WebApp;
-    let selectedIngredients = []; // Массив для хранения выбранных ингредиентов
+    let selectedIngredients = [];
 
-    // Получаем кнопки по их ID
+
     let sur = document.getElementById("join_sur");
     let sal = document.getElementById("join_sal");
     let ana = document.getElementById("join_ana");
@@ -144,7 +144,7 @@
       'Лук': 30
     };
 
-    // Функция добавления ингредиента
+
     function addIngredient(ingredient) {
       if (!selectedIngredients.includes(ingredient)) {
         selectedIngredients.push(ingredient);
@@ -154,11 +154,11 @@
       }
     }
 
-    // Функция обновления списка ингредиентов
+
     function updateIngredientList() {
       const ingredientList = document.getElementById('ingredient-list');
-      ingredientList.innerHTML = ''; // Очищаем текущий список
-      let totalCalories = 0; // Переменная для подсчета калорий
+      ingredientList.innerHTML = '';
+      let totalCalories = 0;
       selectedIngredients.forEach(ingredient => {
         const li = document.createElement('li');
         const calories = ingredientCalories[ingredient];
@@ -169,23 +169,10 @@
 
       const totalCaloriesLi = document.createElement('li');
       totalCaloriesLi.textContent = `Общее количество калорий: ${totalCalories}`;
-      ingredientList.appendChild(totalCaloriesLi); // Добавляем в список
+      ingredientList.appendChild(totalCaloriesLi);
     }
 
-    // Функция для отображения всех ингредиентов с калориями
-    function showCalories() {
-      const calorieList = document.getElementById('calorie-list'); 
-      calorieList.innerHTML = ''; 
-      for (const ingredient in ingredientCalories) {
-        const li = document.createElement('li');
-        li.textContent = `${ingredient} - ${ingredientCalories[ingredient]} калорий`;
-        calorieList.appendChild(li);
-      }
-    }
 
-    document.getElementById('show-calories').onclick = showCalories;
-
-    // Назначаем обработчики событий для кнопок добавления ингредиентов
     sur.onclick = () => addIngredient('Сыр');
     sal.onclick = () => addIngredient('Салат');
     ana.onclick = () => addIngredient('Ананасы');
@@ -195,8 +182,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
