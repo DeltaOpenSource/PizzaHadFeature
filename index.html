@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -62,54 +62,136 @@
       color: #555;
       font-size: 14px;
     }
+
+    #selected-ingredients {
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
   <div id="main">
     <h1>Выберите ингредиенты для пиццы</h1>
 
-    <div class="card_sur">
+    <div class="card" id="card_sur">
       <h2>Сыр</h2>
       <img src="path/to/cheese.jpg" alt="Сыр" />
       <p>Топленый сыр для вашей пиццы.</p>
-      <button class="join">Добавить</button>
+      <button class="join" id="join_sur">Добавить</button>
     </div>
 
-    <div class="card_col">
+    <div class="card" id="card_col">
       <h2>Колбаса</h2>
       <img src="path/to/sausage.jpg" alt="Колбаса" />
       <p>Вкусная колбаса для пиццы.</p>
-      <button class="join">Добавить</button>
+      <button class="join" id="join_col">Добавить</button>
     </div>
 
-    <div class="card_gri">
+    <div class="card" id="card_gri">
       <h2>Грибы</h2>
       <img src="path/to/mushrooms.jpg" alt="Грибы" />
       <p>Свежие грибы для пиццы.</p>
-      <button class="join">Добавить</button>
+      <button class="join" id="join_gri">Добавить</button>
     </div>
 
-    <div class="card_ana">
+    <div class="card" id="card_ana">
       <h2>Ананасы</h2>
       <img src="path/to/pineapple.jpg" alt="Ананасы" />
       <p>Сладкие ананасы для пиццы.</p>
-      <button class="join">Добавить</button>
+      <button class="join" id="join_ana">Добавить</button>
     </div>
 
-    <div class="card_sal">
+    <div class="card" id="card_sal">
       <h2>Салат</h2>
       <img src="path/to/salad.jpg" alt="Салат" />
       <p>Свежий салат для пиццы.</p>
-      <button class="join">Добавить</button>
+      <button class="join" id="join_sal">Добавить</button>
     </div>
 
-    <div class="card_luk">
+    <div class="card" id="card_luk">
       <h2>Лук</h2>
       <img src="path/to/onion.jpg" alt="Лук" />
       <p>Ароматный лук для пиццы.</p>
-      <button class="join">Добавить</button>
+      <button class="join" id="join_luk">Добавить</button>
+    </div>
+
+    <div id="selected-ingredients">
+      <h2>Выбранные ингредиенты:</h2>
+      <ul id="calorie-list"></ul>
+      <button id="show-calories">Калории</button>
+      <ul id="ingredient-list"></ul>
     </div>
   </div>
+
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script>
+    let tg = window.Telegram.WebApp;
+    let selectedIngredients = []; // Массив для хранения выбранных ингредиентов
+
+    // Получаем кнопки по их ID
+    let sur = document.getElementById("join_sur");
+    let sal = document.getElementById("join_sal");
+    let ana = document.getElementById("join_ana");
+    let col = document.getElementById("join_col");
+    let gri = document.getElementById("join_gri");
+    let luk = document.getElementById("join_luk");
+
+    const ingredientCalories = {
+      'Сыр': 300,
+      'Салат': 50,
+      'Ананасы': 80,
+      'Колбаса': 250,
+      'Грибы': 40,
+      'Лук': 30
+    };
+
+    // Функция добавления ингредиента
+    function addIngredient(ingredient) {
+      if (!selectedIngredients.includes(ingredient)) {
+        selectedIngredients.push(ingredient);
+        updateIngredientList();
+      } else {
+        alert(`Ингредиент '${ingredient}' уже добавлен!`);
+      }
+    }
+
+    // Функция обновления списка ингредиентов
+    function updateIngredientList() {
+      const ingredientList = document.getElementById('ingredient-list');
+      ingredientList.innerHTML = ''; // Очищаем текущий список
+      selectedIngredients.forEach(ingredient => {
+        const li = document.createElement('li');
+        const calories = ingredientCalories[ingredient];
+        li.textContent = `${ingredient} - ${calories} калорий`;
+        totalCalories += calories;
+        ingredientList.appendChild(li);
+      });
+    }
+
+    
+
+    function showCalories() {
+            const calorieList = document.getElementById('calorie-list'); 
+            calorieList.innerHTML = ''; 
+            for (const ingredient in ingredientCalories) {
+                const li = document.createElement('li');
+                li.textContent = `${ingredient} - ${ingredientCalories[ingredient]} калорий`;
+                calorieList.appendChild(li);
+                li.textContent = totalCalories
+            }
+    }
+
+    document.getElementById('show-calories').onclick = showCalories;
+
+
+    sur.onclick = () => addIngredient('Сыр');
+    sal.onclick = () => addIngredient('Салат');
+    ana.onclick = () => addIngredient('Ананасы');
+    col.onclick = () => addIngredient('Колбаса');
+    gri.onclick = () => addIngredient('Грибы');
+    luk.onclick = () => addIngredient('Лук');
+
+
+  </script>
 </body>
 </html>
 
